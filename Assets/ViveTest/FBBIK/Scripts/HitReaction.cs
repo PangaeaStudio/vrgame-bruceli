@@ -203,6 +203,14 @@ namespace RootMotion.Demos {
 
 		}
 
+		void Awake()
+		{
+			if(null == ik)
+			{
+				ik = GetComponent<FullBodyBipedIK>();
+			}
+		}
+
 		[Tooltip("Hit points for the FBBIK effectors")]
 		public HitPointEffector[] effectorHitPoints;
 		[Tooltip(" Hit points for bones without an effector, such as the head")]

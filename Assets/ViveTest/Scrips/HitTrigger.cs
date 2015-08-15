@@ -6,10 +6,12 @@ namespace RootMotion.Demos
 {
     public class HitTrigger : MonoBehaviour
     {
-        [SerializeField]
-        HitReaction hitReaction;
+        // [SerializeField]
+        // HitReaction hitReaction;
         [SerializeField]
         float hitForce = 1f;
+        [SerializeField]
+        int damage = 1;
 
         bool isReact;
         Vector3 reactVelocity;
@@ -18,9 +20,11 @@ namespace RootMotion.Demos
         public float weightFalloffSpeed = 1f; // The speed of explosion falloff
 
         public GameObject target;
-        Rigidbody targetRigidbody;
+        // Rigidbody targetRigidbody;
 
         private string colliderName;
+
+        protected SteamVR_TrackedObject vrObj;
 
         void Start()
         {
@@ -34,6 +38,12 @@ namespace RootMotion.Demos
             {
 
             }
+            OnUpdate();
+        }
+
+        protected virtual void OnUpdate()
+        {
+
         }
 
         void OnGUI()
@@ -51,30 +61,57 @@ namespace RootMotion.Demos
 
             ContactPoint contact = collision.contacts[0];
             Vector3 point = contact.point;
-            // Use the HitReaction
-            hitReaction.Hit(collider, -dir * hitForce, point);
 
-            isReact = true;
-            reactVelocity = dir;
-            // root transform
+            ProcessWeaponCollision(collider, dir, point);
+            // // Use the HitReaction
+            // // hitReaction.Hit(collider, -dir * hitForce, point);
+
+            // isReact = true;
+            // reactVelocity = dir;
+            // // root transform
+            // Vector3 direction = -dir * hitForce;
+            // direction.y = 0;
+            // //target.transform.Translate(move);
+
+            // MonsterController monsterController = collision.transform.GetComponentInParent<MonsterController>();
+            // if (monsterController != null)
+            // {
+            //     target = monsterController.gameObject;
+            //     targetRigidbody = target.GetComponent<Rigidbody>();
+
+            //     //float explosionForce = explosionForceByDistance.Evaluate(direction.magnitude);
+            //     targetRigidbody.velocity = (direction.normalized + (Vector3.up * upForce)) * 1 * forceMlp;
+            // }
+
+            // // Just for GUI
+            // colliderName = collider.name;
+
+            // Debug.Log(gameObject.name + "-OnCollisionEnter: " + collision.gameObject.name);
+        }
+
+        protected virtual void ProcessWeaponCollision(Collider collider, Vector3 dir, Vector3 hitPoint)
+        {
             Vector3 direction = -dir * hitForce;
-            direction.y = 0;
-            //target.transform.Translate(move);
 
-            MonsterController monsterController = collision.transform.GetComponentInParent<MonsterController>();
+            MonsterController monsterController = collider.transform.GetComponentInParent<MonsterController>();
             if (monsterController != null)
             {
                 target = monsterController.gameObject;
-                targetRigidbody = target.GetComponent<Rigidbody>();
-
-                //float explosionForce = explosionForceByDistance.Evaluate(direction.magnitude);
-                targetRigidbody.velocity = (direction.normalized + (Vector3.up * upForce)) * 1 * forceMlp;
+                // targetRigidbody = target.GetComponent<Rigidbody>();
+                monsterController.Hit(collider,direction, hitPoint, damage);
             }
+        }
 
-            // Just for GUI
-            colliderName = collider.name;
+        public void OnPickUp(SteamVR_TrackedObject vrObj, FixedJoint joint)
+        {
+            this.vrObj = vrObj;
+            joint.connectedBody = transform.GetComponent<Rigidbody>();
+        }
 
-            Debug.Log(gameObject.name + "-OnCollisionEnter: " + collision.gameObject.name);
+        public void OnDrop(SteamVR_TrackedObject vrObj, FixedJoint joint)
+        {
+            joint.connectedBody = null;
+            GameObject.DestroyImmediate(gameObject);
         }
 
     }
