@@ -9,7 +9,7 @@ public class HandBruce : MonoBehaviour {
 	public bool isLeft = false;
 	private GameObject currentWeapon;
 
-	public static bool isDebug = true;
+	public static bool isDebug = false;
 	// Use this for initialization
 	void Start () {
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
