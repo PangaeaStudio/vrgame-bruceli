@@ -22,7 +22,7 @@ public class Fist : HitTrigger
 		if(HandBruce.isDebug)
 			return Input.GetKey("g");
 		var device = SteamVR_Controller.Input((int)vrObj.index);
-		return device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger);
+		return device.GetTouch(SteamVR_Controller.ButtonMask.Trigger);
 	}
 
 	private bool IsPressUP()
@@ -30,7 +30,7 @@ public class Fist : HitTrigger
 		if(HandBruce.isDebug)
 			return Input.GetKeyUp("g");
 		var device = SteamVR_Controller.Input((int)vrObj.index);
-		return device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger);
+		return device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger);
 	}
 
 	protected override void OnUpdate()

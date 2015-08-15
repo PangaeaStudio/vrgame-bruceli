@@ -26,6 +26,8 @@ namespace RootMotion.Demos
 
         protected SteamVR_TrackedObject vrObj;
 
+        public Collider ct;
+
         void Start()
         {
             //targetRigidbody = target.gameObject.GetComponent<Rigidbody>();
@@ -46,23 +48,25 @@ namespace RootMotion.Demos
 
         }
 
-        void OnGUI()
-        {
-            GUILayout.Label("LMB to shoot the Dummy, RMB to rotate the camera.");
-            if (colliderName != string.Empty) GUILayout.Label("Last Bone Hit: " + colliderName);
-        }
+        // void OnGUI()
+        // {
+        //     GUILayout.Label("LMB to shoot the Dummy, RMB to rotate the camera.");
+        //     if (colliderName != string.Empty) GUILayout.Label("Last Bone Hit: " + colliderName);
+        // }
         //public void OnTriggerEnter(Collider collision)
         public void OnCollisionEnter(Collision collision)
         {
             //if (!isReact)
             //    return;
             Collider collider = collision.gameObject.GetComponent<Collider>();
-            Vector3 dir = collision.relativeVelocity;
+            Vector3 dir = GetVelocity() * hitForce;
 
             ContactPoint contact = collision.contacts[0];
             Vector3 point = contact.point;
 
             ProcessWeaponCollision(collider, dir, point);
+
+            // ct.enabled = false;
             // // Use the HitReaction
             // // hitReaction.Hit(collider, -dir * hitForce, point);
 
@@ -113,6 +117,12 @@ namespace RootMotion.Demos
             joint.connectedBody = null;
             GameObject.DestroyImmediate(gameObject);
         }
+
+        public Vector3 GetVelocity() 
+        {
+            var device = SteamVR_Controller.Input((int)vrObj.index);
+            return device.velocity;
+        } 
 
     }
 }
