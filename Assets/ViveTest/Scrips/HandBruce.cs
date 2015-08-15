@@ -23,7 +23,7 @@ public class HandBruce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(IsTouchUP())
+		if(IsPressUP())
 		{
 			SwapWeapon();
 		}
