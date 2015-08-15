@@ -51,7 +51,15 @@ namespace RootMotion.Demos
             GUILayout.Label("LMB to shoot the Dummy, RMB to rotate the camera.");
             if (colliderName != string.Empty) GUILayout.Label("Last Bone Hit: " + colliderName);
         }
-        //public void OnTriggerEnter(Collider collision)
+        public void OnTriggerEnter(Collider collider)
+        {
+            Vector3 dir = collider.gameObject.transform.position - transform.position;
+
+            Vector3 point = collider.gameObject.transform.position;
+
+            ProcessWeaponCollision(collider, -dir, point);
+
+        }
         public void OnCollisionEnter(Collision collision)
         {
             //if (!isReact)
@@ -84,9 +92,11 @@ namespace RootMotion.Demos
             // }
 
             // // Just for GUI
-            // colliderName = collider.name;
+            colliderName = collider.name;
 
             // Debug.Log(gameObject.name + "-OnCollisionEnter: " + collision.gameObject.name);
+
+            //gameObject.SetActive(false);
         }
 
         protected virtual void ProcessWeaponCollision(Collider collider, Vector3 dir, Vector3 hitPoint)
