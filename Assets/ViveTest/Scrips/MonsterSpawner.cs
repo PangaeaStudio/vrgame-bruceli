@@ -33,7 +33,7 @@ public class MonsterSpawner : MonoBehaviour
             if (nextGenerateTime > 0 && Time.time > nextGenerateTime)
             {
                 currentLevel++;
-                if (GenerateDatas.Length > currentLevel)
+                //if (GenerateDatas.Length > currentLevel)
                 {
                     StartGenerateLevel(currentLevel);
                 }

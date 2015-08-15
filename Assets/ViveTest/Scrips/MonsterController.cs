@@ -1,17 +1,43 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using RootMotion.Demos;
+using NodeCanvas.Framework;
 
 public class MonsterController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject targetPlayer;
+    [SerializeField]
+    GameObject[] wayPoints;
+
     HitReaction hitReaction;
     Rigidbody rigidbody;
+
+    Blackboard blackBoard;
 
     void Awake()
     {
         hitReaction = GetComponent<HitReaction>();
 
         rigidbody = GetComponent<Rigidbody>();
+
+        if (targetPlayer == null)
+        {
+            targetPlayer = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (wayPoints.Length == 0)
+        {
+            wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
+        }
+
+        if(blackBoard == null)
+            blackBoard = gameObject.GetComponent<Blackboard>();
+
+        blackBoard.SetValue("target", targetPlayer);
+
+        List<GameObject> wps = new List<GameObject>(wayPoints);
+        blackBoard.SetValue("PatrolWayPoints", wps);
     }
 
 	public void Hit(Collider collider, Vector3 direction, Vector3 point, int damage)
