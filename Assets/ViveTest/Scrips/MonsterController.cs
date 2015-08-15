@@ -28,6 +28,11 @@ public class MonsterController : MonoBehaviour
     {
     }
 
+    public void Drop()
+    {
+    	
+    }
+
     // Use this for initialization
     void Start()
     {
