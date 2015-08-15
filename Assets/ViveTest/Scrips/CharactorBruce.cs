@@ -25,6 +25,6 @@ public class CharactorBruce : MonoBehaviour
 
 	void Update()
 	{
-		gameObject.transform.position += gameObject.transform.forward * -0.01f;
+		//gameObject.transform.position += gameObject.transform.forward * -0.01f;
 	}
 }

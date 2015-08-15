@@ -91,7 +91,7 @@ public class MonsterController : MonoBehaviour
         {
             // Use the HitReaction
             hitReaction.Hit(collider, direction, point);
-            animator.SetBool("IsHit", true);
+            //animator.SetBool("IsHit", true);
 
             //direction.y = 0;
             ////rigidbody.velocity = (direction.normalized + (Vector3.up * 1)) * 1 * 1;

@@ -26,6 +26,8 @@ namespace RootMotion.Demos
 
         protected SteamVR_TrackedObject vrObj;
 
+        public bool IsUsingJoint = false;
+
         void Start()
         {
             //targetRigidbody = target.gameObject.GetComponent<Rigidbody>();
@@ -65,7 +67,7 @@ namespace RootMotion.Demos
             //if (!isReact)
             //    return;
             Collider collider = collision.gameObject.GetComponent<Collider>();
-            Vector3 dir = collision.relativeVelocity;
+            Vector3 dir = GetVelocity();
 
             ContactPoint contact = collision.contacts[0];
             Vector3 point = contact.point;
@@ -116,12 +118,19 @@ namespace RootMotion.Demos
         {
             this.vrObj = vrObj;
             joint.connectedBody = transform.GetComponent<Rigidbody>();
+         
         }
 
         public void OnDrop(SteamVR_TrackedObject vrObj, FixedJoint joint)
         {
             joint.connectedBody = null;
             GameObject.DestroyImmediate(gameObject);
+        }
+
+        private Vector3 GetVelocity()
+        {
+            var device = SteamVR_Controller.Input((int)vrObj.index);
+            return device.velocity;
         }
 
     }

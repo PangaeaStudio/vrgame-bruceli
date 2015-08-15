@@ -26,7 +26,13 @@ public class HandBruce : MonoBehaviour {
 		if(IsPressUP())
 		{
 			SwapWeapon();
+            Debug.LogWarning("trigger");
 		}
+
+        if (IsTouchUP())
+        {
+            Debug.LogWarning("button");
+        }
 	}
 
 	private bool IsTouchUP()
@@ -68,8 +74,18 @@ public class HandBruce : MonoBehaviour {
 
 		currentWeapon = Instantiate(obj);
 		var rig = GetComponent<Rigidbody>();
-		currentWeapon.transform.position = rig.transform.position;
-		currentWeapon.transform.rotation = rig.transform.rotation;
-		currentWeapon.GetComponent<HitTrigger>().OnPickUp(trackedObj, GetComponent<FixedJoint>());
+        HitTrigger hittrigger = currentWeapon.GetComponent<HitTrigger>();
+        if (hittrigger.IsUsingJoint)
+        {
+
+            currentWeapon.transform.position = rig.transform.position;
+            currentWeapon.transform.rotation = rig.transform.rotation;
+            hittrigger.OnPickUp(trackedObj, GetComponent<FixedJoint>());
+        }
+        else
+        {
+            //hittrigger.transform.parent = transform;
+            hittrigger.transform.SetParent(transform, false);
+        }
 	}
 }
