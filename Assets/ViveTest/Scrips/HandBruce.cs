@@ -12,7 +12,7 @@ public class HandBruce : MonoBehaviour {
 	public static bool isDebug = false;
 	// Use this for initialization
 	void Start () {
-		trackedObj = GetComponent<SteamVR_TrackedObject>();
+		trackedObj = transform.parent.GetComponent<SteamVR_TrackedObject>();
 		bruce = GameObject.FindWithTag("Player").GetComponent<CharactorBruce>();
 		if(null == currentWeapon)
 		{
