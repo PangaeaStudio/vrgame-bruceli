@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using RootMotion.Demos;
 using NodeCanvas.Framework;
 using NodeCanvas.BehaviourTrees;
+using RootMotion.FinalIK;
 
 public class MonsterController : MonoBehaviour
 {
@@ -22,16 +23,27 @@ public class MonsterController : MonoBehaviour
 
     Animator animator;
 
-    public float HitReactTime = 1.0f;
-    private bool isHitReact;
-    private float hitRecoverTime;
+    //public float HitReactTime = 1.0f;
+    [SerializeField]
+    //private bool isHitReact;
+    private int hitReactType = -1;
+    public float KnockDownRecoverTime = 1.0f;
+    private bool isDownFront, isDownBack;
+    private float getUpTime;
 
-    public float LightHitForceGrade;
-    public float MediumHitForceGrade;
-    public float HardHitForceGrade;
+    public float LightHitForceGrade = 100;
+    public float MediumHitForceGrade = 1000;
+    public float HardHitForceGrade = 10000;
 
     private bool isDead;
 
+    RagdollUtility ragdollUtility;
+
+    public float DyingTime = 3;
+    private float destoryTime;
+
+    //0: normal/ai 1: hit reaction, 2: grab, 3: dead
+    private MonsterStateEnum actionState = MonsterStateEnum.Normal;
 
     void Awake()
     {
@@ -67,59 +79,135 @@ public class MonsterController : MonoBehaviour
         }
 
         currentHP = HP;
+
+        ragdollUtility = GetComponent<RagdollUtility>();
     }
 
+    public void SetState(MonsterStateEnum state)
+    {
+        if (actionState == MonsterStateEnum.Normal)
+        {
+            if (behaviourTree)
+                behaviourTree.PauseBehaviour();
+        }
+
+        actionState = state;
+
+        if (actionState == MonsterStateEnum.Normal)
+        {
+            if (behaviourTree)
+                behaviourTree.StartBehaviour();
+        }
+
+        if (actionState != MonsterStateEnum.HitReact)
+        {
+            hitReactType = -1;
+        }
+
+        if (actionState == MonsterStateEnum.Dead)
+        {
+            destoryTime = Time.time + DyingTime;
+        }
+
+    }
 	public void Hit(Collider collider, Vector3 direction, Vector3 point, int damage)
     {
-        if (isDead)
+        //Debug.LogWarning(direction.magnitude);
+        //if (isDead)
+        //    return;
+
+        if (actionState != MonsterStateEnum.Normal)
             return;
 
-        if (isHitReact)
-            return;
+        //if (isHitReact)
+        //    return;
 
         currentHP -= damage;
         if (currentHP < 0)
             isDead = true;
 
-        isHitReact = true;
-
-        if(behaviourTree)
-            behaviourTree.PauseBehaviour();
+        //isHitReact = true;
+        SetState(MonsterStateEnum.HitReact);
 
         float hitForce = direction.magnitude;
-        //if (hitForce < LightHitForceGrade)
+        if (hitForce < LightHitForceGrade)
         {
             // Use the HitReaction
             hitReaction.Hit(collider, direction, point);
-            //animator.SetBool("IsHit", true);
-
+            if (isDead)
+            {
+                animator.SetBool("IsDead", true);
+                SetState(MonsterStateEnum.Dead);
+            }
+            else
+            {
+                animator.SetBool("IsHit", true);
+                hitReactType = 0;
+            }
             //direction.y = 0;
+            //transform.Translate(direction);
             ////rigidbody.velocity = (direction.normalized + (Vector3.up * 1)) * 1 * 1;
             //rigidbody.velocity = direction;
         }
-        //else if (hitForce < MediumHitForceGrade)
-        //{
-        //    // Use the HitReaction
-        //    hitReaction.Hit(collider, direction, point);
-        //    animator.SetBool("IsHit", true);
-        //}
-        //else if (hitForce < HardHitForceGrade)
-        //{
-        //    animator.SetBool("IsKnockDown", true);
-        //}
-        //else
-        //{
-        //    //Knock Away
-        //}
+        else if (hitForce < MediumHitForceGrade)
+        {
+            // Use the HitReaction
+            hitReaction.Hit(collider, direction, point);
+
+            //Vector3 forward = transform.TransformDirection(Vector3.forward);
+            if (Vector3.Dot(transform.forward, direction) < 0)
+            {
+                animator.SetBool("IsKnockDownFront", true);
+            }
+            else
+            {
+                animator.SetBool("IsKnockDownBack", true);
+            }
+            hitReactType = 1;
+        }
+        else if (hitForce < HardHitForceGrade)
+        {
+            //animator.SetBool("IsKnockDown", true);
+
+            ragdollUtility.EnableRagdoll();
+            hitReactType = 2;
+
+            Rigidbody rigi = collider.gameObject.GetComponent<Rigidbody>();
+            if (rigi != null)
+            {
+                rigidbody.velocity = direction;
+            }
+            currentHP = 0;
+            isDead = true;
+
+            SetState(MonsterStateEnum.Dead);
+
+        }
+        else
+        {
+            //Knock Away
+        }
     }
 
     public void Grab(Vector3 direction)
     {
+        if (actionState != MonsterStateEnum.Normal)
+            return;
+
+        SetState(MonsterStateEnum.Grabed);
+
+        ragdollUtility.EnableRagdoll();
+
+        currentHP = 0;
+        isDead = true;
     }
 
     public void Drop()
     {
-    	
+        if (actionState != MonsterStateEnum.Grabed)
+            return;
+
+        SetState(MonsterStateEnum.Dead);
     }
 
     // Use this for initialization
@@ -131,21 +219,79 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isHitReact)
+        if(actionState == MonsterStateEnum.HitReact)
         {
-            bool isHit = animator.GetBool("IsHit");
-            bool isHitDown = animator.GetBool("IsKnockDown");
-
-            //isHitReact = isHit | isHitDown;
-            isHitReact = isHit;
-
-            if (!isHitReact)
+            if (hitReactType == 0)
             {
-                if (behaviourTree)
-                    behaviourTree.StartBehaviour();
+                //isHitReact = false;
+                SetState(MonsterStateEnum.Normal);
+            }
+            else if (hitReactType == 1)
+            {
+
+                if (!(isDownBack || isDownFront))
+                {
+                    isDownFront = animator.GetBool("IsDownFront");
+                    isDownBack = animator.GetBool("IsDownBack");
+
+                    if ((isDownBack || isDownFront))
+                    {
+                        if (isDead)
+                        {
+                            SetState(MonsterStateEnum.Dead);
+                        }
+                        else
+                            getUpTime = Time.time + KnockDownRecoverTime;
+                    }
+                }
+                else
+                {
+                    if (Time.time > getUpTime)
+                    {
+                        if (isDownFront)
+                        {
+                            animator.SetBool("IsGetUpFront", true);
+                            isDownFront = false;
+                        }
+                        if (isDownBack)
+                        {
+                            animator.SetBool("IsGetUpBack", true);
+                            isDownBack = false;
+                        }
+                        SetState(MonsterStateEnum.Normal);
+                    }
+                }
+            }
+            else if (hitReactType == 2)
+            {
+                //if(ragdollUtility.ragdollToAnimationTime)
+            }
+
+            //if (!isHitReact)
+            //{
+            //    hitReactType = -1;
+            //    if (behaviourTree)
+            //        behaviourTree.StartBehaviour();
+            //}
+        }
+        else if (actionState == MonsterStateEnum.Grabed)
+        {
+
+        }
+        else if (actionState == MonsterStateEnum.Dead)
+        {
+            if (Time.time > destoryTime)
+            {
+                Destroy(this);
             }
         }
     }
 
-
+    public enum MonsterStateEnum
+    {
+        Normal = 0,
+        HitReact = 1,
+        Grabed = 2,
+        Dead = 3
+    }
 }

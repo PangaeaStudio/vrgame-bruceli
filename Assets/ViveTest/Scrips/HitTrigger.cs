@@ -24,9 +24,11 @@ namespace RootMotion.Demos
 
         private string colliderName;
 
-        protected SteamVR_TrackedObject vrObj;
+        // protected SteamVR_TrackedObject vrObj;
 
         public bool IsUsingJoint = false;
+
+        public GameObject[] effects;
 
         void Start()
         {
@@ -59,6 +61,8 @@ namespace RootMotion.Demos
 
             Vector3 point = collider.gameObject.transform.position;
 
+            colliderName = collider.name;
+
             ProcessWeaponCollision(collider, -dir, point);
 
         }
@@ -73,32 +77,12 @@ namespace RootMotion.Demos
             Vector3 point = contact.point;
 
             ProcessWeaponCollision(collider, dir, point);
-            // // Use the HitReaction
-            // // hitReaction.Hit(collider, -dir * hitForce, point);
-
-            // isReact = true;
-            // reactVelocity = dir;
-            // // root transform
-            // Vector3 direction = -dir * hitForce;
-            // direction.y = 0;
-            // //target.transform.Translate(move);
-
-            // MonsterController monsterController = collision.transform.GetComponentInParent<MonsterController>();
-            // if (monsterController != null)
-            // {
-            //     target = monsterController.gameObject;
-            //     targetRigidbody = target.GetComponent<Rigidbody>();
-
-            //     //float explosionForce = explosionForceByDistance.Evaluate(direction.magnitude);
-            //     targetRigidbody.velocity = (direction.normalized + (Vector3.up * upForce)) * 1 * forceMlp;
-            // }
 
             // // Just for GUI
             colliderName = collider.name;
 
             // Debug.Log(gameObject.name + "-OnCollisionEnter: " + collision.gameObject.name);
 
-            //gameObject.SetActive(false);
         }
 
         protected virtual void ProcessWeaponCollision(Collider collider, Vector3 dir, Vector3 hitPoint)
@@ -112,25 +96,43 @@ namespace RootMotion.Demos
                 // targetRigidbody = target.GetComponent<Rigidbody>();
                 monsterController.Hit(collider,direction, hitPoint, damage);
             }
+
+
+            int effectNum;
+            if (effects == null)
+            {
+                effectNum = 0;
+            }
+            else
+            {
+                effectNum = effects.Length;
+            }
+            if (effectNum > 0)
+            {
+                int eindex = Random.Range(0, effectNum);
+                GameObject go = (GameObject)GameObject.Instantiate(effects[eindex], hitPoint, Quaternion.identity);
+                Object.Destroy(go, 1);
+            }
         }
 
-        public void OnPickUp(SteamVR_TrackedObject vrObj, FixedJoint joint)
-        {
-            this.vrObj = vrObj;
-            joint.connectedBody = transform.GetComponent<Rigidbody>();
+        // public void OnPickUp(SteamVR_TrackedObject vrObj, FixedJoint joint)
+        // {
+        //     this.vrObj = vrObj;
+        //     joint.connectedBody = transform.GetComponent<Rigidbody>();
          
-        }
+        // }
 
-        public void OnDrop(SteamVR_TrackedObject vrObj, FixedJoint joint)
-        {
-            joint.connectedBody = null;
-            GameObject.DestroyImmediate(gameObject);
-        }
+        // public void OnDrop(SteamVR_TrackedObject vrObj, FixedJoint joint)
+        // {
+        //     joint.connectedBody = null;
+        //     GameObject.DestroyImmediate(gameObject);
+        // }
 
         private Vector3 GetVelocity()
         {
-            var device = SteamVR_Controller.Input((int)vrObj.index);
-            return device.velocity;
+            return Vector3.zero;
+            // var device = SteamVR_Controller.Input((int)vrObj.index);
+            // return device.velocity;
         }
 
     }

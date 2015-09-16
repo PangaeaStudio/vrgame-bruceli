@@ -19,18 +19,20 @@ public class Fist : HitTrigger
 
     private bool IsPressDown()
 	{
-		if(HandBruce.isDebug)
-			return Input.GetKey("g");
-		var device = SteamVR_Controller.Input((int)vrObj.index);
-		return device.GetTouch(SteamVR_Controller.ButtonMask.Trigger);
+		// if(HandBruce.isDebug)
+		// 	return Input.GetKey("g");
+		// var device = SteamVR_Controller.Input((int)vrObj.index);
+		// return device.GetTouch(SteamVR_Controller.ButtonMask.Trigger);
+        return false;
 	}
 
 	private bool IsPressUP()
 	{
-		if(HandBruce.isDebug)
-			return Input.GetKeyUp("g");
-		var device = SteamVR_Controller.Input((int)vrObj.index);
-		return device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger);
+		// if(HandBruce.isDebug)
+		// 	return Input.GetKeyUp("g");
+		// var device = SteamVR_Controller.Input((int)vrObj.index);
+		// return device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger);
+        return false;
 	}
 
 	protected override void OnUpdate()

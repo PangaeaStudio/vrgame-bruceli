@@ -3,10 +3,54 @@
 	{
 		"selected_items":
 		[
+			[
+				"vec",
+				"Vector3	Vector3"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseObjectController.cs",
+			"settings":
+			{
+				"buffer_size": 2414,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/SixenseInput/Scripts/SixenseInput.cs",
+			"settings":
+			{
+				"buffer_size": 10654,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/d/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
+			"settings":
+			{
+				"buffer_size": 8762,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHand.cs",
+			"settings":
+			{
+				"buffer_size": 2429,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHandsController.cs",
+			"settings":
+			{
+				"buffer_size": 1948,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,10 +59,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "pro",
+		"height": 150.0,
+		"last_filter": "reloa",
 		"selected_items":
 		[
+			[
+				"reloa",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"edi",
+				"Project: Edit Project"
+			],
 			[
 				"pro",
 				"Project: Save As"
@@ -40,10 +92,6 @@
 				"Project: Save As"
 			],
 			[
-				"edi",
-				"Project: Edit Project"
-			],
-			[
 				"omnisha",
 				"OmniSharpSublime: Show Server Output"
 			],
@@ -60,7 +108,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -90,10 +138,21 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/dinghaoming/Documents/workspace/unity/vrgame-bruceli"
+		"/D/workspace/unity/vrgame-bruceli/Assets",
+		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins",
+		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins/x86",
+		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins/x86_64"
 	],
 	"file_history":
 	[
+		"/D/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/SixenseHands.unity",
+		"/D/workspace/unity/vrgame-bruceli/Assets/RootMotion/Shared Demo Assets/Scripts/Camera Controllers/CameraController.cs",
+		"/D/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/Fist.cs",
+		"/D/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/HandBruce.cs",
+		"/D/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/HitTrigger.cs",
+		"/d/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/MonsterController.cs",
+		"/D/workspace/unity/vrgame-bruceli/vrgame-bruceli.sublime-project",
+		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins/Editor/Scene Camera Tool/Readme.txt",
 		"/Users/dinghaoming/Documents/workspace/unity/SHVRTemplate/SHVRTemplate.sln",
 		"/Users/dinghaoming/Documents/360手机助手导出的联系人.csv",
 		"/Users/dinghaoming/Documents/1.csv",
@@ -148,6 +207,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" // // Use the HitReaction\n            // // hitReaction.Hit(collider, -dir * hitForce, point);\n\n            // isReact = true;\n            // reactVelocity = dir;\n            // // root transform\n            // Vector3 direction = -dir * hitForce;\n            // direction.y = 0;\n            // //target.transform.Translate(move);\n\n            // MonsterController monsterController = collision.transform.GetComponentInParent<MonsterController>();\n            // if (monsterController != null)\n            // {\n            //     target = monsterController.gameObject;\n            //     targetRigidbody = target.GetComponent<Rigidbody>();\n\n            //     //float explosionForce = explosionForceByDistance.Evaluate(direction.magnitude);\n            //     targetRigidbody.velocity = (direction.normalized + (Vector3.up * upForce)) * 1 * forceMlp;\n            // }\n",
 			"\"\",",
 			"ctrl+left",
 			"move",
@@ -178,8 +238,172 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseObjectController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								634,
+								638
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/SixenseInput/Scripts/SixenseInput.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8079,
+								8079
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"10098,10106": "Convert to constant",
+								"10122,10131": "Convert to constant",
+								"148,153": "Using directive is not used by code and can be removed safely.",
+								"174,179": "Using directive is not used by code and can be removed safely.",
+								"3337,3338": "Bitwise Operations on enum not marked with Flags attribute",
+								"3544,3545": "Bitwise Operations on enum not marked with Flags attribute",
+								"3579,3580": "Bitwise Operations on enum not marked with Flags attribute",
+								"3793,3794": "Bitwise Operations on enum not marked with Flags attribute",
+								"3828,3829": "Bitwise Operations on enum not marked with Flags attribute",
+								"4391,4398": "Parameter can be IComparable",
+								"4962,4963": "Bitwise Operations on enum not marked with Flags attribute",
+								"5025,5033": "Convert to auto property",
+								"6443,6467": "'ControllerManagerEnabled' should start with a lower case letter. (Rule 'Fields')",
+								"7280,7293": "Use 'var' keyword",
+								"9866,9873": "Redundant empty 'default' switch branch"
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4808.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/d/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5727,
+								5751
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHand.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1793,
+								1804
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHandsController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								325
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -224,7 +448,7 @@
 	},
 	"output.variable_get":
 	{
-		"height": 0.0
+		"height": 130.0
 	},
 	"pinned_build_system": "",
 	"project": "vrgame-bruceli.sublime-project",
@@ -239,6 +463,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sixensehands",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHandsController.cs"
+			],
+			[
+				"sixensehand",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHand.cs"
+			],
+			[
+				"sixhen",
+				"SixenseInput\\DemoScenes\\SixenseHands.unity"
+			],
+			[
+				"sixensein",
+				"SixenseInput\\Scripts\\SixenseInput.cs"
+			],
+			[
+				"sixscencecon",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseObjectController.cs"
+			],
+			[
+				"fist",
+				"ViveTest\\Scrips\\Fist.cs"
+			],
+			[
+				"camer",
+				"RootMotion\\Shared Demo Assets\\Scripts\\Camera Controllers\\CameraController.cs"
+			],
+			[
+				"handbr",
+				"ViveTest\\Scrips\\HandBruce.cs"
+			],
+			[
+				"hit",
+				"ViveTest\\Scrips\\HitTrigger.cs"
+			],
 			[
 				"uipa",
 				"Assets/PLUG/NGUI/Scripts/UI/UIPanel.cs"
@@ -295,7 +555,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 231.0,
 	"status_bar_visible": true,
 	"template_settings":

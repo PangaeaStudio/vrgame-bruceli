@@ -13,6 +13,8 @@
 *.userprefs
 *.pidb
 *.booproj
+*.sublime-project
+*.sublime-workspace
 
 # Unity3D generated meta files
 *.pidb.meta
