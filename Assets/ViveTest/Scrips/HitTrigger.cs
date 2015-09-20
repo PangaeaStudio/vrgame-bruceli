@@ -26,7 +26,7 @@ namespace RootMotion.Demos
 
         public GameObject[] effects;
 
-        private IPanInputDevice input;
+        protected IPanInputDevice input;
 
         void Start()
         {

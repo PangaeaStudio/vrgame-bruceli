@@ -287,7 +287,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &177936
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -405,7 +405,7 @@ Transform:
   - {fileID: 495136}
   - {fileID: 480480}
   m_Father: {fileID: 420508}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &411876
 Transform:
   m_ObjectHideFlags: 1
@@ -420,7 +420,7 @@ Transform:
   - {fileID: 495234}
   - {fileID: 490386}
   m_Father: {fileID: 420508}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &413076
 Transform:
   m_ObjectHideFlags: 1
@@ -464,9 +464,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.42401123, y: .0558430664, z: 1.90600967}
+  m_LocalPosition: {x: -4.3691349, y: .0558430664, z: 1.61128044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 468232}
   - {fileID: 484700}
   - {fileID: 458700}
   - {fileID: 482384}
@@ -549,7 +550,7 @@ Transform:
   - {fileID: 413076}
   - {fileID: 413486}
   m_Father: {fileID: 420508}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &458700
 Transform:
   m_ObjectHideFlags: 1
@@ -564,7 +565,7 @@ Transform:
   - {fileID: 462092}
   - {fileID: 441732}
   m_Father: {fileID: 420508}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &462092
 Transform:
   m_ObjectHideFlags: 1
@@ -584,10 +585,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12636411, y: 0, z: .150389194}
-  m_LocalScale: {x: 4.4674468, y: 1.9640789, z: 4.46744537}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 482384}
+  m_Father: {fileID: 420508}
   m_RootOrder: 0
 --- !u!4 &475460
 Transform:
@@ -634,10 +635,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0281591024, y: 0, z: -.00375978951}
   m_LocalScale: {x: .0250000004, y: .0568643808, z: .0250000004}
-  m_Children:
-  - {fileID: 468232}
+  m_Children: []
   m_Father: {fileID: 420508}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &484700
 Transform:
   m_ObjectHideFlags: 1
@@ -652,7 +652,7 @@ Transform:
   - {fileID: 480114}
   - {fileID: 445412}
   m_Father: {fileID: 420508}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &490386
 Transform:
   m_ObjectHideFlags: 1
@@ -1271,11 +1271,11 @@ MonoBehaviour:
   - {fileID: 11439806}
   - {fileID: 11482478}
   - {fileID: 11494352}
-  palm: {fileID: 482384}
+  palm: {fileID: 468232}
   forearm: {fileID: 0}
   wristJoint: {fileID: 0}
   elbowJoint: {fileID: 0}
-  filtering: .5
+  filtering: 3
 --- !u!114 &11471856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701f5377c11e3409fbda048c5567513b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabTriggerDistance: .400000006
+  grabTriggerDistance: .0299999993
   rotationFiltering: .400000006
 --- !u!114 &11482478
 MonoBehaviour:
@@ -1362,7 +1362,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: grabTriggerDistance
+      value: .0299999993
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 189574}

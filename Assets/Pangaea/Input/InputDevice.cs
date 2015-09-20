@@ -5,6 +5,7 @@ namespace Pangaea.Input
 	public interface IPanInputDevice
 	{
 		HandType GetHandType();
+		
 		bool GetBtnDown(PanButton btn);
 
 		bool GetBtnUp(PanButton btn);

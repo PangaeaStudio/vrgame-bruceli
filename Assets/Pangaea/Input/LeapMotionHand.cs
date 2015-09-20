@@ -6,7 +6,7 @@ public class LeapMotionHand : MonoBehaviour, IPanInputDevice
 {
 
 	
-    public float grabTriggerDistance = 0.4f;
+    public float grabTriggerDistance = 0.03f;
 
     private GameObject _grabedObj;
 

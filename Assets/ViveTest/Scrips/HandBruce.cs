@@ -27,6 +27,8 @@ public class HandBruce : MonoBehaviour
 		if(null != inputObject)
 			input = inputObject.GetComponent<IPanInputDevice>();
 		if(input == null)
+			input = GetComponent<IPanInputDevice>();
+		if(input == null)
 			throw new UnityException("Can not Init InputDevice");
 		handType = input.GetHandType();
 	}
@@ -42,6 +44,7 @@ public class HandBruce : MonoBehaviour
 
 	private void SwapWeapon()
 	{
+		if(bruce == null) return;
 		GameObject obj;
 		if(handType == HandType.Left)
 		{
