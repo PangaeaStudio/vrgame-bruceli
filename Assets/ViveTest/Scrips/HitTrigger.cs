@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RootMotion.FinalIK;
+using Pangaea.Input;
 
 namespace RootMotion.Demos
 {
     public class HitTrigger : MonoBehaviour
     {
-        // [SerializeField]
-        // HitReaction hitReaction;
         [SerializeField]
         float hitForce = 1f;
         [SerializeField]
@@ -20,19 +19,17 @@ namespace RootMotion.Demos
         public float weightFalloffSpeed = 1f; // The speed of explosion falloff
 
         public GameObject target;
-        // Rigidbody targetRigidbody;
 
         private string colliderName;
-
-        // protected SteamVR_TrackedObject vrObj;
 
         public bool IsUsingJoint = false;
 
         public GameObject[] effects;
 
+        private IPanInputDevice input;
+
         void Start()
         {
-            //targetRigidbody = target.gameObject.GetComponent<Rigidbody>();
 
         }
 
@@ -115,24 +112,22 @@ namespace RootMotion.Demos
             }
         }
 
-        // public void OnPickUp(SteamVR_TrackedObject vrObj, FixedJoint joint)
-        // {
-        //     this.vrObj = vrObj;
-        //     joint.connectedBody = transform.GetComponent<Rigidbody>();
+        public void OnPickUp(IPanInputDevice input, FixedJoint joint)
+        {
+            this.input = input;
+            joint.connectedBody = transform.GetComponent<Rigidbody>();
          
-        // }
+        }
 
-        // public void OnDrop(SteamVR_TrackedObject vrObj, FixedJoint joint)
-        // {
-        //     joint.connectedBody = null;
-        //     GameObject.DestroyImmediate(gameObject);
-        // }
+        public void OnDrop(IPanInputDevice input, FixedJoint joint)
+        {
+            joint.connectedBody = null;
+            GameObject.DestroyImmediate(gameObject);
+        }
 
         private Vector3 GetVelocity()
-        {
-            return Vector3.zero;
-            // var device = SteamVR_Controller.Input((int)vrObj.index);
-            // return device.velocity;
+        {   
+            return (input == null)? Vector3.zero : input.GetVelocity();
         }
 
     }

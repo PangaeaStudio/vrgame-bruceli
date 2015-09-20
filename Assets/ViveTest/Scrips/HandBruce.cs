@@ -1,67 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RootMotion.Demos;
+using Pangaea.Input;
 
-public class HandBruce : MonoBehaviour {
+public class HandBruce : MonoBehaviour 
+{
+	public HandType handType;
+	public GameObject inputObject;
 
-	// SteamVR_TrackedObject trackedObj;
+	private IPanInputDevice input;
 	private CharactorBruce bruce;
-	public bool isLeft = false;
 	private GameObject currentWeapon;
 
-	public static bool isDebug = false;
-	// Use this for initialization
 	void Start () {
-		// trackedObj = transform.parent.GetComponent<SteamVR_TrackedObject>();
+		InitInputDevice();
+		
 		bruce = GameObject.FindWithTag("Player").GetComponent<CharactorBruce>();
 		if(null == currentWeapon)
 		{
 			SwapWeapon();
 		}
 	}
+
+	private void InitInputDevice()
+	{
+		if(null != inputObject)
+			input = inputObject.GetComponent<IPanInputDevice>();
+		if(input == null)
+			throw new UnityException("Can not Init InputDevice");
+		handType = input.GetHandType();
+	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(IsPressUP())
+		if(input.GetBtnDown(PanButton.BTN0))
 		{
 			SwapWeapon();
-            Debug.LogWarning("trigger");
 		}
-
-        if (IsTouchUP())
-        {
-            Debug.LogWarning("button");
-        }
-	}
-
-	private bool IsTouchUP()
-	{
-		// if(isDebug)
-		// {
-		// 	return Input.GetKeyDown("a");
-		// }
-		// var device = SteamVR_Controller.Input((int)trackedObj.index);
-		// return device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger);
-		return false;	
-	}
-
-
-	private bool IsPressUP()
-	{
-		// if(isDebug)
-		// {
-		// 	return Input.GetKeyUp("a");
-		// }
-		// var device = SteamVR_Controller.Input((int)trackedObj.index);
-		// return device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad);
-		return false;
 	}
 
 	private void SwapWeapon()
 	{
 		GameObject obj;
-		if(isLeft)
+		if(handType == HandType.Left)
 		{
 			obj = bruce.GetLNextWeapon();
 		}
@@ -72,7 +54,8 @@ public class HandBruce : MonoBehaviour {
 
 		if(null != currentWeapon)
 		{
-			// currentWeapon.GetComponent<HitTrigger>().OnDrop(trackedObj, GetComponent<FixedJoint>());
+			currentWeapon.GetComponent<HitTrigger>().OnDrop(input, GetComponent<FixedJoint>());
+			input.OnDrop(currentWeapon);
 		}
 
 		currentWeapon = Instantiate(obj);
@@ -83,13 +66,14 @@ public class HandBruce : MonoBehaviour {
 
             currentWeapon.transform.position = rig.transform.position;
             currentWeapon.transform.rotation = rig.transform.rotation;
-            // hittrigger.OnPickUp(trackedObj, GetComponent<FixedJoint>());
+            hittrigger.OnPickUp(input, GetComponent<FixedJoint>());
+            input.OnGrab(currentWeapon);
         }
         else
         {
-            //hittrigger.transform.parent = transform;
             hittrigger.transform.SetParent(transform, false);
-            // hittrigger.OnPickUp(trackedObj, GetComponent<FixedJoint>());
+            hittrigger.OnPickUp(input, GetComponent<FixedJoint>());
+            input.OnGrab(currentWeapon);
         }
 	}
 }
