@@ -5,9 +5,9 @@ using Pangaea.Input;
 
 public class HandBruce : MonoBehaviour 
 {
-	public HandType handType;
 	public GameObject inputObject;
 
+	private HandType handType;
 	private IPanInputDevice input;
 	private CharactorBruce bruce;
 	private GameObject currentWeapon;

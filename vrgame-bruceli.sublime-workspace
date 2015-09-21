@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"dra",
+				"DrawLine(Vector3 from, Vector3 to)	void"
+			],
+			[
+				"colo",
+				"Color32	Color32"
+			],
+			[
+				"j",
+				"JoystickY	float { get; }"
+			],
+			[
+				"getbo",
+				"GetButtonDown(SixenseButtons button)	bool"
+			],
+			[
+				"t",
+				"TWO	SixenseButtons"
+			],
+			[
+				"m",
+				"m_hand	SixenseHands"
+			],
+			[
 				"vec",
 				"Vector3	Vector3"
 			]
@@ -12,11 +36,11 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseObjectController.cs",
+			"file": "Assets/Pangaea/Input/HydraHand.cs",
 			"settings":
 			{
-				"buffer_size": 2414,
-				"line_ending": "Windows"
+				"buffer_size": 2272,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -24,11 +48,11 @@
 			"settings":
 			{
 				"buffer_size": 10654,
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/d/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
+			"file": "Assets/SixenseInput/Scripts/SixensePlugin.cs",
 			"settings":
 			{
 				"buffer_size": 8762,
@@ -36,19 +60,19 @@
 			}
 		},
 		{
-			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHand.cs",
+			"file": "Assets/Pangaea/Input/HydraHandsController.cs",
 			"settings":
 			{
-				"buffer_size": 2429,
+				"buffer_size": 2265,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHandsController.cs",
+			"file": "Assets/ViveTest/Scrips/HandBruce.cs",
 			"settings":
 			{
-				"buffer_size": 1948,
-				"line_ending": "Unix"
+				"buffer_size": 1908,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -59,13 +83,41 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 150.0,
-		"last_filter": "reloa",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
+				"rel",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"fix",
+				"OmniSharpSublime: Fix Usings"
+			],
+			[
 				"reloa",
 				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"out",
+				"OmniSharpSublime: Show Server Output"
+			],
+			[
+				"outp",
+				"OmniSharpSublime: Show Server Output"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"outpu",
+				"OmniSharpSublime: Show Server Output"
 			],
 			[
 				"edi",
@@ -94,10 +146,6 @@
 			[
 				"omnisha",
 				"OmniSharpSublime: Show Server Output"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"br",
@@ -138,13 +186,32 @@
 	},
 	"expanded_folders":
 	[
-		"/D/workspace/unity/vrgame-bruceli/Assets",
-		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins",
-		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins/x86",
-		"/D/workspace/unity/vrgame-bruceli/Assets/Plugins/x86_64"
+		"/E/workspace/unity/vrgame-bruceli/Assets"
 	],
 	"file_history":
 	[
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/Scripts/SixenseHandsController.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/Pangaea/Input/InputDevice.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/Pangaea/Input/HydraHand.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixenseInput.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/Scripts/SixenseHand.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/Pangaea/Input/HydraHandsController.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/HandBruce.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/HandyHands/scripts/VisualizeJoint.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/Scripts/SixenseInputTest.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/SixenseInputTest.unity",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/OmniSharp/OmniSharpSublime.sublime-settings",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/OmniSharpSublime.sublime-settings",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/OmniSharp/PrebuiltOmniSharpServer/config.json",
+		"/E/workspace/unity/vrgame-bruceli/Assets/HandyHands/readme.txt",
+		"/E/workspace/unity/vrgame-bruceli/Assets/HandyHands/handyhandsdemo.unity",
+		"/C/Users/Administrator/Desktop/Toltech_SDK/ALG/SDK/Include/NewDataStruct.h",
+		"/C/Users/Administrator/Desktop/Toltech_SDK/ALG/SDK/Include/xeyez_typedef.h",
+		"/C/Users/Administrator/Desktop/Toltech_SDK/ALG/SDK/Include/xeyezHal.h",
+		"/E/workspace/unity/vrgame-bruceli/Assets/OVR/Scripts/OVRPlugin.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/Scripts/SixenseObjectController.cs",
+		"/E/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
+		"/d/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
 		"/D/workspace/unity/vrgame-bruceli/Assets/SixenseInput/DemoScenes/SixenseHands.unity",
 		"/D/workspace/unity/vrgame-bruceli/Assets/RootMotion/Shared Demo Assets/Scripts/Camera Controllers/CameraController.cs",
 		"/D/workspace/unity/vrgame-bruceli/Assets/ViveTest/Scrips/Fist.cs",
@@ -197,9 +264,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 96.0,
 		"where_history":
 		[
+			"D:\\Program Files\\Sublime Text Build 3083 x64\\Packages",
+			"D:\\Program Files\\Sublime Text Build 3083 x64"
 		]
 	},
 	"find_state":
@@ -207,6 +276,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"",
+			"\\",
+			"C:\\Users\\Mustapha\\AppData\\Roaming\\Sublime Text 3\\Packages",
+			";",
 			" // // Use the HitReaction\n            // // hitReaction.Hit(collider, -dir * hitForce, point);\n\n            // isReact = true;\n            // reactVelocity = dir;\n            // // root transform\n            // Vector3 direction = -dir * hitForce;\n            // direction.y = 0;\n            // //target.transform.Translate(move);\n\n            // MonsterController monsterController = collision.transform.GetComponentInParent<MonsterController>();\n            // if (monsterController != null)\n            // {\n            //     target = monsterController.gameObject;\n            //     targetRigidbody = target.GetComponent<Rigidbody>();\n\n            //     //float explosionForce = explosionForceByDistance.Evaluate(direction.magnitude);\n            //     targetRigidbody.velocity = (direction.normalized + (Vector3.up * upForce)) * 1 * forceMlp;\n            // }\n",
 			"\"\",",
 			"ctrl+left",
@@ -238,36 +311,51 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseObjectController.cs",
+					"file": "Assets/Pangaea/Input/HydraHand.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2414,
+						"buffer_size": 2272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								634,
-								638
+								2126,
+								2126
 							]
 						],
 						"settings":
 						{
+							"oops":
+							{
+								"1026,1028": "Convert to 'return' statement",
+								"1133,1135": "Convert to 'return' statement",
+								"1331,1337": "Name should have prefix '_'. (Rule 'Fields').",
+								"1371,1383": "Name should have prefix '_'. (Rule 'Fields').",
+								"1386,1390": "Initializing field by default value is redundant",
+								"1495,1498": "Redundant array creation expression",
+								"1499,1513": "Redundant explicit array type specification",
+								"400,402": "Convert to 'return' statement",
+								"545,547": "Convert to 'return' statement",
+								"686,688": "Convert to 'return' statement",
+								"816,818": "Convert to 'return' statement",
+								"921,923": "Convert to 'return' statement"
+							},
 							"syntax": "Packages/C#/C#.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1803.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -283,43 +371,25 @@
 						"selection":
 						[
 							[
-								8079,
-								8079
+								7539,
+								7539
 							]
 						],
 						"settings":
 						{
-							"oops":
-							{
-								"10098,10106": "Convert to constant",
-								"10122,10131": "Convert to constant",
-								"148,153": "Using directive is not used by code and can be removed safely.",
-								"174,179": "Using directive is not used by code and can be removed safely.",
-								"3337,3338": "Bitwise Operations on enum not marked with Flags attribute",
-								"3544,3545": "Bitwise Operations on enum not marked with Flags attribute",
-								"3579,3580": "Bitwise Operations on enum not marked with Flags attribute",
-								"3793,3794": "Bitwise Operations on enum not marked with Flags attribute",
-								"3828,3829": "Bitwise Operations on enum not marked with Flags attribute",
-								"4391,4398": "Parameter can be IComparable",
-								"4962,4963": "Bitwise Operations on enum not marked with Flags attribute",
-								"5025,5033": "Convert to auto property",
-								"6443,6467": "'ControllerManagerEnabled' should start with a lower case letter. (Rule 'Fields')",
-								"7280,7293": "Use 'var' keyword",
-								"9866,9873": "Redundant empty 'default' switch branch"
-							},
 							"syntax": "Packages/C#/C#.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4808.0,
+						"translation.y": 5016.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/d/workspace/unity/vrgame-bruceli/Assets/SixenseInput/Scripts/SixensePlugin.cs",
+					"file": "Assets/SixenseInput/Scripts/SixensePlugin.cs",
 					"semi_transient": false,
 					"settings":
 					{
@@ -330,8 +400,8 @@
 						"selection":
 						[
 							[
-								5727,
-								5751
+								7970,
+								7993
 							]
 						],
 						"settings":
@@ -340,36 +410,37 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 486.0,
+						"translation.y": 2497.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHand.cs",
+					"file": "Assets/Pangaea/Input/HydraHandsController.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2429,
+						"buffer_size": 2265,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1793,
-								1804
+								1453,
+								1461
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 627.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -377,28 +448,33 @@
 				},
 				{
 					"buffer": 4,
-					"file": "Assets/SixenseInput/DemoScenes/Scripts/SixenseHandsController.cs",
+					"file": "Assets/ViveTest/Scrips/HandBruce.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1948,
+						"buffer_size": 1908,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								325,
-								325
+								465,
+								465
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"oops":
+							{
+								"152,163": "Name should have prefix '_'. (Rule 'Fields').",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"965,967": "Convert to '?:' expression"
+							},
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -440,11 +516,15 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 191.0
+		"height": 96.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 124.0
 	},
 	"output.variable_get":
 	{
@@ -464,6 +544,78 @@
 		"selected_items":
 		[
 			[
+				"hydrah",
+				"Pangaea\\Input\\HydraHandsController.cs"
+			],
+			[
+				"sixens",
+				"SixenseInput\\Scripts\\SixenseInput.cs"
+			],
+			[
+				"bru",
+				"ViveTest\\Scrips\\HandBruce.cs"
+			],
+			[
+				"hydra",
+				"Pangaea\\Input\\HydraHand.cs"
+			],
+			[
+				"handb",
+				"ViveTest\\Scrips\\HandBruce.cs"
+			],
+			[
+				"hydrahands",
+				"Pangaea\\Input\\HydraHandsController.cs"
+			],
+			[
+				"sixen",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHandsController.cs"
+			],
+			[
+				"inputde",
+				"Pangaea\\Input\\InputDevice.cs"
+			],
+			[
+				"sixensehandscontro",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHandsController.cs"
+			],
+			[
+				"sixenhand",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHand.cs"
+			],
+			[
+				"sixsenseip",
+				"SixenseInput\\Scripts\\SixenseInput.cs"
+			],
+			[
+				"sixenseinp",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseInputTest.cs"
+			],
+			[
+				"sixensein",
+				"SixenseInput\\DemoScenes\\SixenseInputTest.unity"
+			],
+			[
+				"sixensehandc",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHandsController.cs"
+			],
+			[
+				"visualiz",
+				"HandyHands\\scripts\\VisualizeJoint.cs"
+			],
+			[
+				"sixenceinput",
+				"SixenseInput\\Scripts\\SixenseInput.cs"
+			],
+			[
+				"sixhand",
+				"SixenseInput\\DemoScenes\\Scripts\\SixenseHand.cs"
+			],
+			[
+				"sixense",
+				"SixenseInput\\Scripts\\SixensePlugin.cs"
+			],
+			[
 				"sixensehands",
 				"SixenseInput\\DemoScenes\\Scripts\\SixenseHandsController.cs"
 			],
@@ -474,10 +626,6 @@
 			[
 				"sixhen",
 				"SixenseInput\\DemoScenes\\SixenseHands.unity"
-			],
-			[
-				"sixensein",
-				"SixenseInput\\Scripts\\SixenseInput.cs"
 			],
 			[
 				"sixscencecon",
@@ -552,7 +700,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
